@@ -1,70 +1,196 @@
-# Getting Started with Create React App
+# 🤖 AI-Based Quiz Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-powered full-stack quiz application that dynamically generates multiple-choice questions based on a user-selected topic and difficulty level using the OpenRouter API.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+* 📝 Custom topic input
+* 🎚 Difficulty selection (Easy / Medium / Hard)
+* 🤖 AI-generated 5 multiple-choice questions
+* ✅ 4 options per question
+* 📊 Automatic score calculation
+* 🎉 Result display screen
+* 🔐 Secure backend API key handling
+* 🌐 Full frontend-backend integration
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Tech Stack
 
-### `npm test`
+### Frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React.js
+* HTML
+* CSS
+* JavaScript (ES6)
 
-### `npm run build`
+### Backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Node.js
+* Express.js
+* node-fetch (v2)
+* dotenv
+* CORS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### AI Integration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* OpenRouter Chat Completions API
+* Model: `openai/gpt-3.5-turbo`
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📂 Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+react-ai-quiz/
+│
+├── server/
+│   ├── server.js
+│   ├── package.json
+│   ├── .env
+│
+├── src/
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│
+├── package.json
+└── README.md
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ⚙️ Installation & Setup
 
-## Learn More
+### 1️⃣ Clone the Repository
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/yourusername/react-ai-quiz.git
+cd react-ai-quiz
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### 2️⃣ Install Frontend Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 3️⃣ Setup Backend
 
-### Making a Progressive Web App
+```bash
+cd server
+npm install
+npm install node-fetch@2
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### 4️⃣ Create `.env` File (Inside server folder)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Create a `.env` file inside the `server` folder and add:
 
-### Deployment
+```
+OPENROUTER_API_KEY=your_api_key_here
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+⚠️ Important:
 
-### `npm run build` fails to minify
+* Do NOT push `.env` to GitHub
+* Ensure `.env` is added to `.gitignore`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+### 5️⃣ Run Backend Server
+
+```bash
+node server.js
+```
+
+Backend runs at:
+
+```
+http://localhost:5000
+```
+
+---
+
+### 6️⃣ Run Frontend
+
+Open a new terminal in the main project folder:
+
+```bash
+npm start
+```
+
+Frontend runs at:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 🧠 How It Works
+
+1. User enters topic and selects difficulty
+2. Frontend sends a POST request to the backend
+3. Backend generates an AI prompt
+4. Backend calls OpenRouter API
+5. AI returns quiz questions in JSON format
+6. Backend parses and sends structured data to frontend
+7. Frontend displays questions and calculates score
+
+---
+
+## 🔐 Security
+
+* API key stored securely using environment variables
+* Backend handles all AI API requests
+* API key never exposed to frontend
+* `.env` excluded from version control
+
+---
+
+## 🛠 Challenges Faced
+
+* Resolved CORS issues
+* Fixed `fetch is not a function` error (using node-fetch v2)
+* Corrected invalid model configuration
+* Handled AI JSON parsing issues
+* Debugged frontend-backend communication errors
+
+---
+
+## 📈 Future Improvements
+
+* Add timer per question
+* Improve UI with modern styling (Tailwind CSS / Material UI)
+* Store quiz history in database
+* Add authentication system
+* Deploy application (Vercel + Render)
+* Add leaderboard feature
+
+---
+
+## 🎯 Learning Outcomes
+
+* Full-stack web development
+* REST API integration
+* AI API usage
+* Environment variable security
+* JSON parsing and validation
+* Real-world debugging
+* Git & GitHub version control
+
+---
+
+## 🏆 Conclusion
+
+This project demonstrates the integration of AI-powered dynamic content generation into a full-stack web application. It showcases secure backend handling, frontend rendering, and practical debugging experience.
+
